@@ -1,3 +1,4 @@
+<!-- modaaaaaal -->
 <button
   type="button"
   class="btn btn-success"
@@ -5,6 +6,7 @@
   data-bs-target="#exampleModal"
   data-bs-whatever="@mdo"
 >
+<i class="fa fa-american-sign-language-interpreting fa-1x" aria-hidden="true"> </i>
   Agregar
 </button>
 
@@ -18,7 +20,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Agregar Personas</h5>
         <button
           type="button"
           class="btn-close"
@@ -29,23 +31,68 @@
       <div class="modal-body">
         <form>
           <div class="mb-3">
-            <label for="recipient-name" class="col-form-label"
-              >Recipient:</label
-            >
-            <input type="text" class="form-control" id="recipient-name" />
+            <label for="recipient-name" class="col-form-label">Nombre:</label>
+            <input type="text" class="form-control" id="n" #nombre />
           </div>
           <div class="mb-3">
-            <label for="message-text" class="col-form-label">Message:</label>
-            <textarea class="form-control" id="message-text"></textarea>
+            <label for="recipient-name" class="col-form-label">Apellido:</label>
+            <input type="text" class="form-control" id="a" #apellido />
           </div>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">DNI:</label>
+            <input type="text" class="form-control" id="d" #dni />
+          </div>
+          <label for="recipient-name" class="col-form-label"
+            >Estado Civil:</label
+          >
+          <select
+            class="form-select"
+            id="e"
+            aria-label="Default select example"
+            #estado
+          >
+            <option selected>Seleccione su estado civil</option>
+            <option value="Casado">Casado</option>
+            <option value="Soltero">Soltero</option>
+            <option value="Divorciado">Divorciado</option>
+          </select>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
           Close
         </button>
-        <button type="button" class="btn btn-primary">Send message</button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-dismiss="modal"
+          (click)="
+            agregar(nombre.value, apellido.value, dni.value, estado.value)
+          "
+        >
+          Send message
+        </button>
       </div>
     </div>
   </div>
 </div>
+
+<!-- tablaaaa -->
+<table class="table table-dark table-striped mt-2 mb-4">
+  <thead>
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido</th>
+      <th scope="col">DNI</th>
+      <th scope="col">Estado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let pro of productos">
+      <td>{{ pro.nombre }}</td>
+      <td>{{ pro.apellido }}</td>
+      <td>{{ pro.dni }}</td>
+      <td>{{ pro.estado }}</td>
+    </tr>
+  </tbody>
+</table>

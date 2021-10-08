@@ -1,65 +1,59 @@
 import { Component, OnInit } from '@angular/core';
 
-class Producto{
- 
-  nombre?:String;
-  precio?:String;
-  stock?:String;
-  categoria?:String;
+class Producto {
+  nombre?: String;
+  apellido?: String;
+  dni?: String;
+  estado?: String;
 }
 
 @Component({
   selector: 'app-contenido',
   templateUrl: './contenido.component.html',
-  styleUrls: ['./contenido.component.css']
+  styleUrls: ['./contenido.component.css'],
 })
 export class ContenidoComponent implements OnInit {
-  
-  productos :  Producto[]=[];
-  constructor() { }
+  productos: Producto[] = [];
+  constructor() {}
 
   ngOnInit(): void {
     this.productos = [
       {
-      
-        nombre:"manzana",
-        precio:"10.5",
-        stock:"9",
-        categoria:"manzana"
+        nombre: 'Benjamin',
+        apellido: 'Huamani',
+        dni: '72040645',
+        estado: 'Soltero',
       },
       {
-       
-        nombre:"pera",
-        precio:"10.5",
-        stock:"9",
-        categoria:"manzana"
+        nombre: 'Daniel',
+        apellido: 'Bailon',
+        dni: '12345678',
+        estado: 'Soltero',
       },
-        {
-          nombre:"camaleon",
-          precio:"10.5",
-          stock:"9",
-          categoria:"manzana"
-        }
-      ];
+      {
+        nombre: 'Keyla',
+        apellido: 'Montes',
+        dni: '12312312',
+        estado: 'Soltero',
+      },
+    ];
   }
 
-  agregar(nombre:String,precio:String, stock:String, categoria:String ){
+  agregar(nombre: String, apellido: String, dni: String, estado: String) {
     this.productos.push({
-      nombre,precio,stock,categoria
+      nombre,
+      apellido,
+      dni,
+      estado,
     });
 
-    
-    
-   
-  console.log(this.productos);
-  this.resetear();
+    console.log(this.productos);
+    this.resetear();
   }
-  resetear(){
-    
-    ((document.getElementById("n") as HTMLInputElement).value)="";
-    ((document.getElementById("p") as HTMLInputElement).value)="";
-    ((document.getElementById("s") as HTMLInputElement).value)="";
-    ((document.getElementById("c") as HTMLInputElement).value)="";
+  resetear() {
+    (document.getElementById('n') as HTMLInputElement).value = '';
+    (document.getElementById('a') as HTMLInputElement).value = '';
+    (document.getElementById('d') as HTMLInputElement).value = '';
+    (document.getElementById('e') as HTMLInputElement).value = '';
   }
-
 }
