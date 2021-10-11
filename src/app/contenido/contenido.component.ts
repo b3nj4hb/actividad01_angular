@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-class Producto {
+class Persona {
   nombre?: String;
   apellido?: String;
   dni?: String;
@@ -13,11 +13,11 @@ class Producto {
   styleUrls: ['./contenido.component.css'],
 })
 export class ContenidoComponent implements OnInit {
-  productos: Producto[] = [];
+  personas: Persona[] = [];
   constructor() {}
 
   ngOnInit(): void {
-    this.productos = [
+    this.personas = [
       {
         nombre: 'Benjamin',
         apellido: 'Huamani',
@@ -40,14 +40,14 @@ export class ContenidoComponent implements OnInit {
   }
 
   agregar(nombre: String, apellido: String, dni: String, estado: String) {
-    this.productos.push({
+    this.personas.push({
       nombre,
       apellido,
       dni,
       estado,
     });
 
-    console.log(this.productos);
+    console.log(this.personas);
     this.resetear();
   }
   resetear() {
